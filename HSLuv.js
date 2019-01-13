@@ -1,35 +1,76 @@
-autowatch = 1;
 inlets = 1;
 outlets = 1;
 
 var HSLuv = require("libHSLuv");
 
-function hsluvToRgb(color)
+function hsluv_to_rgb(color)
 {
-	post(arguments[0] + ", " + arguments[1] + ", " + arguments[2] + "\n");
-	outlet(0, HSLuv.hsluvToRgb([arguments[0], arguments[1], arguments[2]]));
+	if (arguments.length == 3)
+	{
+		outlet(0, HSLuv.hsluvToRgb([arguments[0], arguments[1], arguments[2]]));
+	}
+	else if (arguments.length == 4)
+	{
+		outlet(0, HSLuv.hsluvToRgb([arguments[0], arguments[1], arguments[2]]), arguments[3]);
+	}
 }
 
-function rgbToHsluv(color)
+function rgb_to_hsluv(color)
 {
-	outlet(0, HSLuv.rgbToHsluv(arguments));
+	if (arguments.length == 3)
+	{
+		outlet(0, HSLuv.rgbToHsluv([arguments[0], arguments[1], arguments[2]]));
+	}
+	else if (arguments.length == 4)
+	{
+		outlet(0, HSLuv.rgbToHsluv([arguments[0], arguments[1], arguments[2]]), arguments[3]);
+	}
 }
 
-// HSLuv.hpluvToRgb= S;
-// HSLuv.rgbToHpluv= T;
-// HSLuv.hsluvToHex= function (a) { return L(Q(a)) };
-// HSLuv.hexToHsluv= function (a) { return R(N(a)) };
-// HSLuv.hpluvToHex= function (a) { return L(S(a)) };
-// HSLuv.hexToHpluv= function (a) { return T(N(a)) };
-// HSLuv.lchToHpluv= K;
-// HSLuv.hpluvToLch= J;
-// HSLuv.lchToHsluv= I;
-// HSLuv.hsluvToLch= H;
-// HSLuv.lchToLuv= G;
-// HSLuv.luvToLch= F;
-// HSLuv.xyzToLuv= A;
-// HSLuv.luvToXyz= E;
-// HSLuv.xyzToRgb= t;
-// HSLuv.rgbToXyz= u;
-// HSLuv.lchToRgb= O;
-// HSLuv.rgbToLch= P;
+function hpluv_to_rgb(color)
+{
+	if (arguments.length == 3)
+	{
+		outlet(0, HSLuv.hpluvToRgb([arguments[0], arguments[1], arguments[2]]));
+	}
+	else if (arguments.length == 4)
+	{
+		outlet(0, HSLuv.hpluvToRgb([arguments[0], arguments[1], arguments[2]]), arguments[3]);
+	}
+}
+
+function rgb_to_hpluv(color)
+{
+	if (arguments.length == 3)
+	{
+		outlet(0, HSLuv.rgbToHpluv([arguments[0], arguments[1], arguments[2]]));
+	}
+	else if (arguments.length == 4)
+	{
+		outlet(0, HSLuv.rgbToHpluv([arguments[0], arguments[1], arguments[2]]), arguments[3]);
+	}
+}
+
+function lch_to_rgb(color)
+{
+	if (arguments.length == 3)
+	{
+		outlet(0, HSLuv.lchToRgb([arguments[0], arguments[1], arguments[2]]));
+	}
+	else if (arguments.length == 4)
+	{
+		outlet(0, HSLuv.lchToRgb([arguments[0], arguments[1], arguments[2]]), arguments[3]);
+	}
+}
+
+function rgb_to_lch(color)
+{
+	if (arguments.length == 3)
+	{
+		outlet(0, HSLuv.rgbToLch([arguments[0], arguments[1], arguments[2]]));
+	}
+	else if (arguments.length == 4)
+	{
+		outlet(0, HSLuv.rgbToLch([arguments[0], arguments[1], arguments[2]]), arguments[3]);
+	}
+}
