@@ -25,23 +25,47 @@ function T(a) { return K(P(a)) }
 
 var l = [[3.240969941904521, -1.537383177570093, -.498610760293], [-.96924363628087, 1.87596750150772, .041555057407175], [.055630079696993, -.20397695888897, 1.056971514242878]], v = [[.41239079926595, .35758433938387, .18048078840183], [.21263900587151, .71516867876775, .072192315360733], [.019330818715591, .11919477979462, .95053215224966]], B = 1, C = .19783000664283, D = .46831999493879, k = 903.2962962, g = .0088564516, M = "0123456789abcdef";
 
-exports.hsluvToRgb = Q;
-exports.rgbToHsluv= R;
-exports.hpluvToRgb= S;
-exports.rgbToHpluv= T;
-exports.hsluvToHex= function (a) { return L(Q(a)) };
-exports.hexToHsluv= function (a) { return R(N(a)) };
-exports.hpluvToHex= function (a) { return L(S(a)) };
-exports.hexToHpluv= function (a) { return T(N(a)) };
-exports.lchToHpluv= K;
-exports.hpluvToLch= J;
-exports.lchToHsluv= I;
-exports.hsluvToLch= H;
-exports.lchToLuv= G;
-exports.luvToLch= F;
-exports.xyzToLuv= A;
-exports.luvToXyz= E;
-exports.xyzToRgb= t;
-exports.rgbToXyz= u;
-exports.lchToRgb= O;
-exports.rgbToLch= P;
+exports.hsluvToRgb		= Q;
+exports.rgbToHsluv		= R;
+exports.hpluvToRgb		= S;
+exports.rgbToHpluv		= T;
+exports.hsluvToHex		= function (a) { return L(Q(a)) };
+exports.hexToHsluv		= function (a) { return R(N(a)) };
+exports.hpluvToHex		= function (a) { return L(S(a)) };
+exports.hexToHpluv		= function (a) { return T(N(a)) };
+exports.lchToHpluv		= K;
+exports.hpluvToLch		= J;
+exports.lchToHsluv		= I;
+exports.hsluvToLch		= H;
+exports.lchToLuv		= G;
+exports.luvToLch		= F;
+exports.xyzToLuv		= A;
+exports.luvToXyz		= E;
+exports.xyzToRgb		= t;
+exports.rgbToXyz		= u;
+exports.lchToRgb		= O;
+exports.rgbToLch		= P;
+
+exports.hsluvaToRgba = function(a)
+{
+	var b = Q(a);
+	return [b[0], b[1], b[2], a[3] * 0.01];
+}
+
+exports.rgbaToHsluva = function(a)
+{
+	var b = R(a);
+	return [b[0], b[1], b[2], a[3] * 0.01];
+}
+
+exports.hpluvaToRgba = function(a)
+{
+	var b = S(a);
+	return [b[0], b[1], b[2], a[3] * 0.01];
+}
+
+exports.rgbaToHpluva = function(a)
+{
+	var b = T(a);
+	return [b[0], b[1], b[2], a[3] * 0.01];
+}
